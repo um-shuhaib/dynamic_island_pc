@@ -6,6 +6,9 @@ echo       Dynamic Island for Windows - Quick Setup
 echo ========================================================
 echo.
 
+:: Automatically unblock downloaded files
+powershell.exe -NoProfile -Command "Get-ChildItem -Path '%~dp0' -Recurse | Unblock-File -ErrorAction SilentlyContinue" >nul 2>&1
+
 :: 1. Check Python installation
 python --version >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (
